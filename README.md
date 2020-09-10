@@ -6,7 +6,7 @@ This project aims to wrap up the endpoints from [Dados Abertos da Camara API](ht
 
 Currently we support:
 
-- [ ] /blocos
+- [x] /blocos
 - [ ] /deputados
 - [ ] /eventos
 - [ ] /frentes

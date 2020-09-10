@@ -6,10 +6,12 @@
   "repository": "git@github.com:AcompanhaLegis/sdk-dados-abertos-camara-js.git",
   "author": "Kimura <j.eduardokimura@icloud.com>",
   "license": "MIT",
+  "type": "module",
   "dependencies": {
     "axios": "^0.20.0"
   },
   "devDependencies": {
-    "prettier": "^2.1.1"
+    "prettier": "^2.1.1",
+    "qs": "^6.9.4"
   }
 }
