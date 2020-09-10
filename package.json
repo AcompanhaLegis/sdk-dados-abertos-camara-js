@@ -1,0 +1,15 @@
+{
+  "name": "sdk-dados-abertos-camara-js",
+  "version": "1.0.0",
+  "description": "SDK for requesting data from Camara dos Deputados (Brazil)",
+  "main": "index.js",
+  "repository": "git@github.com:AcompanhaLegis/sdk-dados-abertos-camara-js.git",
+  "author": "Kimura <j.eduardokimura@icloud.com>",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.20.0"
+  },
+  "devDependencies": {
+    "prettier": "^2.1.1"
+  }
+}
