@@ -1,4 +1,13 @@
 /**
+ * Validates the passed format, small but useful.
+ *
+ * @param {String} format - String cointaing the format to be validated.
+ *
+ */
+export const validateFormat = (format) =>
+  format ? ['json', 'xml'].includes(format) : true;
+
+/**
  * Validates different options on API requests.
  *
  * This method may be incremented with any generic validation required for the options sent to the API.
@@ -16,7 +25,8 @@ export const validateOptions = (
     'pagina',
     'itens',
     'ordem',
-    'ordemPor',
+    'ordenarPor',
+    'format',
     ...moreAttributes,
   ];
 
@@ -25,8 +35,7 @@ export const validateOptions = (
     defaultAttributes.includes(key)
   );
 
-  // Validates if the format is either JSON or XML
-  isValid &= options?.format ? ['json', 'xml'].includes(options.format) : true;
+  isValid &= validateFormat(options?.format);
 
   // Validates if the ordernarPor is a valid field
   isValid &= options?.ordenarPor
