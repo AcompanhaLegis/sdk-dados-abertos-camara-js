@@ -7,8 +7,13 @@ const api = axios.create({
   baseURL: 'https://dadosabertos.camara.leg.br/api/v2',
 });
 
-export const get = async (endpoint, options, availableOrderFields = []) => {
-  if (validateOptions(availableOrderFields, options)) {
+export const get = async (
+  endpoint,
+  options,
+  availableOrderFields = [],
+  availableOptions = []
+) => {
+  if (validateOptions(availableOrderFields, options, availableOptions)) {
     try {
       const { format } = options;
       delete options.format;
