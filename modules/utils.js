@@ -21,6 +21,10 @@ export const validateOptions = (
   options,
   moreAttributes = []
 ) => {
+  if (!options) {
+    return true;
+  }
+
   const defaultAttributes = [
     'pagina',
     'itens',
