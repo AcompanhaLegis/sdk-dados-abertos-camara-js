@@ -1,6 +1,4 @@
-import qs from 'qs';
-
-import api from './api';
+import { get } from './api';
 import { validateOptions, validateFormat } from './utils';
 
 const availableOrderFields = ['idLegislatura', 'id', 'nome'];
@@ -22,25 +20,20 @@ const defaultOptions = {
 
 export const getBlocos = async (
   options = defaultOptions,
+
   fullResponse = false
 ) => {
-  if (validateOptions(availableOrderFields, options)) {
-    try {
-      const { format } = options;
-      delete options.format;
+  try {
+    const res = await get(
+      'blocos',
+      options,
+      availableOrderFields,
+      availableOptions
+    );
 
-      const res = await api.get(`/blocos?${qs.stringify(options)}`, {
-        headers: {
-          Accept: `application/${format}`,
-        },
-      });
-
-      return fullResponse ? res : res.data;
-    } catch (err) {
-      throw err;
-    }
-  } else {
-    throw new Error('Invalid options passed!');
+    return fullResponse ? res : res.data;
+  } catch (err) {
+    throw err;
   }
 };
 
@@ -61,11 +54,7 @@ export const getBloco = async (id, format = 'json', fullResponse = false) => {
   }
 
   try {
-    const res = await api.get(`/blocos/${id}`, {
-      headers: {
-        Accept: `application/${format}`,
-      },
-    });
+    const res = await get(`blocos/${id}`, { format });
 
     return fullResponse ? res : res.data;
   } catch (err) {
