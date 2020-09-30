@@ -9,7 +9,9 @@
   "type": "module",
   "scripts": {
     "demo": "parcel index.html",
-    "build": "parcel build index.js"
+    "build": "parcel build index.js",
+    "format": "prettier --write \"./**/*.js\"",
+    "format:ci": "prettier --check \"./**/*.js\""
   },
   "dependencies": {
     "axios": "^0.20.0",
