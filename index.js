@@ -4,16 +4,18 @@ import frentes from './modules/frentes';
 import orgaos from './modules/orgaos';
 import votacoes from './modules/votacoes';
 import legislaturas from './modules/legislaturas';
+import eventos from './modules/eventos';
 
 export { blocos };
 
 const CamaraAPI = {
   ...blocos,
   ...deputados,
+  ...eventos,
   ...frentes,
+  ...legislaturas,
   ...orgaos,
   ...votacoes,
-  ...legislaturas,
 };
 
 export default CamaraAPI;
