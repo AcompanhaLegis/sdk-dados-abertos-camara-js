@@ -16,6 +16,7 @@ const main = async () => {
   const frentes = await CamaraAPI.getFrentesByDeputado(deputadoId);
   const orgaosDeputado = await CamaraAPI.getOrgaosByDeputado(deputadoId);
   const frentesParlamentar = await CamaraAPI.getFrentes()
+  const frentesByParlamentar = await CamaraAPI.getFrentesByParlamentar(54255)
 
   console.log('deputados', deputados);
   console.log('deputado', deputado);
@@ -24,6 +25,7 @@ const main = async () => {
   console.log('eventos deputado', eventosDeputado);
   console.log('frentes', frentes);
   console.log('frentesParlamentar', frentesParlamentar);
+  console.log('frentesByParlamentar', frentesByParlamentar);
 };
 
 main();
