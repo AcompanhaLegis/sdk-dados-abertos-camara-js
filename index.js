@@ -7,6 +7,7 @@ import votacoes from './modules/votacoes';
 import proposicoes from './modules/proposicoes';
 import referencias from './modules/referencias';
 import eventos from './modules/eventos';
+import partidos from './modules/partidos';
 
 export { blocos };
 
@@ -20,6 +21,7 @@ const CamaraAPI = {
   ...votacoes,
   ...proposicoes,
   ...referencias,
+  ...partidos
 };
 
 export default CamaraAPI;
