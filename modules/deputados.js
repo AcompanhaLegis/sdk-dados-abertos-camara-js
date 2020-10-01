@@ -88,7 +88,7 @@ export const getDeputado = async (
  * @param {Object} options - Options to be sent in the request.
  * @param {Boolean} fullResponse - If true it will retrieve the whole response object, otherwise it will return only the data object inside the response.
  */
-export const getDespesasByDeputado = async (
+export const getDeputadoDespesas = async (
   id,
   options = {
     ...defaultOptions,
@@ -129,7 +129,7 @@ export const getDespesasByDeputado = async (
  * @param {Object} options - Options to be sent in the request.
  * @param {Boolean} fullResponse - If true it will retrieve the whole response object, otherwise it will return only the data object inside the response.
  */
-export const getDiscursosByDeputado = async (
+export const getDeputadoDiscursos = async (
   id,
   options = {
     ...defaultOptions,
@@ -160,7 +160,7 @@ export const getDiscursosByDeputado = async (
  * @param {Object} options - Options to be sent in the request.
  * @param {Boolean} fullResponse - If true it will retrieve the whole response object, otherwise it will return only the data object inside the response.
  */
-export const getEventosByDeputado = async (
+export const getDeputadoEventos = async (
   id,
   options = {
     ...defaultOptions,
@@ -190,7 +190,7 @@ export const getEventosByDeputado = async (
  * @param {String} format - Desired response format, default is json.
  * @param {Boolean} fullResponse - If true it will retrieve the whole response object, otherwise it will return only the data object inside the response.
  */
-export const getFrentesByDeputado = async (
+export const getDeputadoFrentes = async (
   id,
   format = 'json',
   fullResponse = false
@@ -211,7 +211,7 @@ export const getFrentesByDeputado = async (
  * @param {Object} options - Options to be sent in the request.
  * @param {Boolean} fullResponse - If true it will retrieve the whole response object, otherwise it will return only the data object inside the response.
  */
-export const getOrgaosByDeputado = async (
+export const getDeputadoOrgaos = async (
   id,
   options = {
     ...defaultOptions,
@@ -245,9 +245,9 @@ export const getOrgaosByDeputado = async (
 export default {
   getDeputados,
   getDeputado,
-  getDespesasByDeputado,
-  getDiscursosByDeputado,
-  getEventosByDeputado,
-  getFrentesByDeputado,
-  getOrgaosByDeputado,
+  getDeputadoDespesas,
+  getDeputadoDiscursos,
+  getDeputadoEventos,
+  getDeputadoFrentes,
+  getDeputadoOrgaos,
 };

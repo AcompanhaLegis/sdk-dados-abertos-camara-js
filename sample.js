@@ -10,11 +10,11 @@ const main = async () => {
   const deputados = await CamaraAPI.getDeputados();
   const deputadoId = deputados.dados[0].id;
   const deputado = await CamaraAPI.getDeputado(deputadoId);
-  const despesas = await CamaraAPI.getDespesasByDeputado(deputadoId);
-  const discursos = await CamaraAPI.getDiscursosByDeputado(deputadoId);
-  const eventosDeputado = await CamaraAPI.getEventosByDeputado(deputadoId);
-  const frentes = await CamaraAPI.getFrentesByDeputado(deputadoId);
-  const orgaosDeputado = await CamaraAPI.getOrgaosByDeputado(deputadoId);
+  const despesas = await CamaraAPI.getDeputadoDespesas(deputadoId);
+  const discursos = await CamaraAPI.getDeputadoDiscursos(deputadoId);
+  const eventosDeputado = await CamaraAPI.getDeputadoEventos(deputadoId);
+  const frentes = await CamaraAPI.getDeputadoFrentes(deputadoId);
+  const orgaosDeputado = await CamaraAPI.getDeputadoOrgaos(deputadoId);
 
   console.log('deputados', deputados);
   console.log('deputado', deputado);
