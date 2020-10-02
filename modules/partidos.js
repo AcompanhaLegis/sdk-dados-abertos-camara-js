@@ -1,5 +1,5 @@
-import { get } from './api.js';
-import { validateFormat } from './utils.js';
+import { get } from './api';
+import { validateFormat } from './utils';
 
 const defaultOptions = {
   pagina: 1,
