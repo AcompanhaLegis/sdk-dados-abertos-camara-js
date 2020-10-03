@@ -18,6 +18,11 @@
     "qs": "^6.9.4"
   },
   "devDependencies": {
+    "eslint": "^7.10.0",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-config-prettier": "^6.12.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-prettier": "^3.1.4",
     "parcel-bundler": "^1.12.4",
     "prettier": "^2.1.1"
   },
