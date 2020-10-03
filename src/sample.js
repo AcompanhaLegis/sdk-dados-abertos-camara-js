@@ -22,6 +22,7 @@ const main = async () => {
   console.log('discursos', discursos);
   console.log('eventos deputado', eventosDeputado);
   console.log('frentes', frentes);
+  console.log('orgaosDeputado', orgaosDeputado);
 };
 
 main();

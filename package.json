@@ -9,7 +9,7 @@
   "type": "module",
   "scripts": {
     "demo": "parcel index.html",
-    "build": "parcel build index.js",
+    "build": "parcel build ./src/index.js",
     "format": "prettier --write \"./**/*.js\"",
     "format:ci": "prettier --check \"./**/*.js\""
   },
@@ -18,8 +18,9 @@
     "qs": "^6.9.4"
   },
   "devDependencies": {
+    "babel-eslint": "^10.1.0",
     "eslint": "^7.10.0",
-    "eslint-config-airbnb": "^18.2.0",
+    "eslint-config-airbnb-base": "^14.2.0",
     "eslint-config-prettier": "^6.12.0",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-prettier": "^3.1.4",

@@ -1,3 +1,4 @@
+/* eslint no-bitwise: ["error", { "allow": ["&="] }] */
 /**
  * Validates the passed format, small but useful.
  *

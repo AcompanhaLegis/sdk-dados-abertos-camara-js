@@ -1,5 +1,5 @@
 import { get } from './api';
-import { validateOptions, validateFormat } from './utils';
+import { validateFormat } from './utils';
 
 const defaultOptions = {
   pagina: 1,
@@ -11,7 +11,8 @@ const defaultOptions = {
  * Wraps the /deputados endpoint
  *
  * @param {Object} options - Options to be sent in the request.
- * @param {Boolean} fullResponse - If true it will retrieve the whole response object, otherwise it will return only the data object inside the response.
+ * @param {Boolean} fullResponse - If true it will retrieve the whole response object,
+ * otherwise it will return only the data object inside the response.
  */
 
 export const getDeputados = async (
@@ -37,19 +38,14 @@ export const getDeputados = async (
     'dataInicio',
     'dataFim',
   ];
+  const res = await get(
+    'deputados',
+    options,
+    availableOrderFields,
+    availableOptions
+  );
 
-  try {
-    const res = await get(
-      'deputados',
-      options,
-      availableOrderFields,
-      availableOptions
-    );
-
-    return fullResponse ? res : res.data;
-  } catch (err) {
-    throw err;
-  }
+  return fullResponse ? res : res.data;
 };
 
 /**
@@ -57,7 +53,8 @@ export const getDeputados = async (
  *
  * @param {Integer} id - ID of the deputado that will be requested.
  * @param {String} format - Desired response format, default is json.
- * @param {Boolean} fullResponse - If true it will retrieve the whole response object, otherwise it will return only the data object inside the response.
+ * @param {Boolean} fullResponse - If true it will retrieve the whole response object,
+ * otherwise it will return only the data object inside the response.
  */
 export const getDeputado = async (
   id,
@@ -72,13 +69,9 @@ export const getDeputado = async (
     throw new Error('Invalid format!');
   }
 
-  try {
-    const res = await get(`deputados/${id}`, { format });
+  const res = await get(`deputados/${id}`, { format });
 
-    return fullResponse ? res : res.data;
-  } catch (err) {
-    throw err;
-  }
+  return fullResponse ? res : res.data;
 };
 
 /**
@@ -86,7 +79,8 @@ export const getDeputado = async (
  *
  * @param {Integer} id - ID of the deputado that will be requested.
  * @param {Object} options - Options to be sent in the request.
- * @param {Boolean} fullResponse - If true it will retrieve the whole response object, otherwise it will return only the data object inside the response.
+ * @param {Boolean} fullResponse - If true it will retrieve the whole response object,
+ * otherwise it will return only the data object inside the response.
  */
 export const getDeputadoDespesas = async (
   id,
@@ -104,19 +98,14 @@ export const getDeputadoDespesas = async (
   ];
 
   const availableOptions = [...availableOrderFields];
+  const res = await get(
+    `deputados/${id}/despesas`,
+    options,
+    availableOrderFields,
+    availableOptions
+  );
 
-  try {
-    const res = await get(
-      `deputados/${id}/despesas`,
-      options,
-      availableOrderFields,
-      availableOptions
-    );
-
-    return fullResponse ? res : res.data;
-  } catch (err) {
-    throw err;
-  }
+  return fullResponse ? res : res.data;
 };
 
 /**
@@ -127,7 +116,8 @@ export const getDeputadoDespesas = async (
  *
  * @param {Integer} id - ID of the deputado that will be requested.
  * @param {Object} options - Options to be sent in the request.
- * @param {Boolean} fullResponse - If true it will retrieve the whole response object, otherwise it will return only the data object inside the response.
+ * @param {Boolean} fullResponse - If true it will retrieve the whole response object,
+ * otherwise it will return only the data object inside the response.
  */
 export const getDeputadoDiscursos = async (
   id,
@@ -139,18 +129,15 @@ export const getDeputadoDiscursos = async (
 ) => {
   const availableOrderFields = ['dataHoraInicio'];
   const availableOptions = [...availableOrderFields];
-  try {
-    const res = await get(
-      `deputados/${id}/discursos`,
-      options,
-      availableOrderFields,
-      availableOptions
-    );
 
-    return fullResponse ? res : res.data;
-  } catch (err) {
-    throw err;
-  }
+  const res = await get(
+    `deputados/${id}/discursos`,
+    options,
+    availableOrderFields,
+    availableOptions
+  );
+
+  return fullResponse ? res : res.data;
 };
 
 /**
@@ -158,7 +145,8 @@ export const getDeputadoDiscursos = async (
  *
  * @param {Integer} id - ID of the deputado that will be requested.
  * @param {Object} options - Options to be sent in the request.
- * @param {Boolean} fullResponse - If true it will retrieve the whole response object, otherwise it will return only the data object inside the response.
+ * @param {Boolean} fullResponse - If true it will retrieve the whole response object,
+ * otherwise it will return only the data object inside the response.
  */
 export const getDeputadoEventos = async (
   id,
@@ -169,18 +157,14 @@ export const getDeputadoEventos = async (
   fullResponse = false
 ) => {
   const availableOrderFields = ['id', 'siglaOrgao', 'dataHoraInicio'];
-  const availableOptions = ['dataInicio', 'dataFim'];
-  try {
-    const res = await get(
-      `deputados/${id}/eventos`,
-      options,
-      availableOrderFields
-    );
 
-    return fullResponse ? res : res.data;
-  } catch (err) {
-    throw err;
-  }
+  const res = await get(
+    `deputados/${id}/eventos`,
+    options,
+    availableOrderFields
+  );
+
+  return fullResponse ? res : res.data;
 };
 
 /**
@@ -188,20 +172,17 @@ export const getDeputadoEventos = async (
  *
  * @param {Integer} id - ID of the deputado that will be requested.
  * @param {String} format - Desired response format, default is json.
- * @param {Boolean} fullResponse - If true it will retrieve the whole response object, otherwise it will return only the data object inside the response.
+ * @param {Boolean} fullResponse - If true it will retrieve the whole response object,
+ * otherwise it will return only the data object inside the response.
  */
 export const getDeputadoFrentes = async (
   id,
   format = 'json',
   fullResponse = false
 ) => {
-  try {
-    const res = await get(`deputados/${id}/frentes`, { format });
+  const res = await get(`deputados/${id}/frentes`, { format });
 
-    return fullResponse ? res : res.data;
-  } catch (err) {
-    throw err;
-  }
+  return fullResponse ? res : res.data;
 };
 
 /**
@@ -209,7 +190,8 @@ export const getDeputadoFrentes = async (
  *
  * @param {Integer} id - ID of the deputado that will be requested.
  * @param {Object} options - Options to be sent in the request.
- * @param {Boolean} fullResponse - If true it will retrieve the whole response object, otherwise it will return only the data object inside the response.
+ * @param {Boolean} fullResponse - If true it will retrieve the whole response object,
+ * otherwise it will return only the data object inside the response.
  */
 export const getDeputadoOrgaos = async (
   id,
@@ -228,18 +210,15 @@ export const getDeputadoOrgaos = async (
     'dataFim',
   ];
   const availableOptions = ['dataInicio', 'dataFim'];
-  try {
-    const res = await get(
-      `deputados/${id}/orgaos`,
-      options,
-      availableOrderFields,
-      availableOptions
-    );
 
-    return fullResponse ? res : res.data;
-  } catch (err) {
-    throw err;
-  }
+  const res = await get(
+    `deputados/${id}/orgaos`,
+    options,
+    availableOrderFields,
+    availableOptions
+  );
+
+  return fullResponse ? res : res.data;
 };
 
 export default {

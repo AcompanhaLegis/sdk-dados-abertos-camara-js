@@ -1,5 +1,5 @@
 import { get } from './api';
-import { validateOptions, validateFormat } from './utils';
+import { validateFormat } from './utils';
 
 const availableOrderFields = ['idLegislatura', 'id', 'nome'];
 const availableOptions = ['id', 'idLegislatura'];
@@ -23,18 +23,14 @@ export const getBlocos = async (
 
   fullResponse = false
 ) => {
-  try {
-    const res = await get(
-      'blocos',
-      options,
-      availableOrderFields,
-      availableOptions
-    );
+  const res = await get(
+    'blocos',
+    options,
+    availableOrderFields,
+    availableOptions
+  );
 
-    return fullResponse ? res : res.data;
-  } catch (err) {
-    throw err;
-  }
+  return fullResponse ? res : res.data;
 };
 
 /**
@@ -42,7 +38,8 @@ export const getBlocos = async (
  *
  * @param {Integer} id - ID of the bloco that will be requested.
  * @param {String} format - Desired response format, default is json.
- * @param {Boolean} fullResponse - If true it will retrieve the whole response object, otherwise it will return only the data object inside the response.
+ * @param {Boolean} fullResponse - If true it will retrieve the whole response object,
+ *  otherwise it will return only the data object inside the response.
  */
 export const getBloco = async (id, format = 'json', fullResponse = false) => {
   if (!id) {
@@ -52,14 +49,9 @@ export const getBloco = async (id, format = 'json', fullResponse = false) => {
   if (!validateFormat(format)) {
     throw new Error('Invalid format!');
   }
+  const res = await get(`blocos/${id}`, { format });
 
-  try {
-    const res = await get(`blocos/${id}`, { format });
-
-    return fullResponse ? res : res.data;
-  } catch (err) {
-    throw err;
-  }
+  return fullResponse ? res : res.data;
 };
 
 export default {
