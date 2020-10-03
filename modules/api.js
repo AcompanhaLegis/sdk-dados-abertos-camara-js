@@ -11,7 +11,7 @@ export const get = async (
   endpoint,
   options,
   availableOrderFields = [],
-  availableOptions = []
+  availableOptions = [],
 ) => {
   if (validateOptions(availableOrderFields, options, availableOptions)) {
     try {

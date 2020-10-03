@@ -21,14 +21,14 @@ const defaultOptions = {
 export const getBlocos = async (
   options = defaultOptions,
 
-  fullResponse = false,
+  fullResponse = false
 ) => {
   try {
     const res = await get(
       'blocos',
       options,
       availableOrderFields,
-      availableOptions,
+      availableOptions
     );
 
     return fullResponse ? res : res.data;
