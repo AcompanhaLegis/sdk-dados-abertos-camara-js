@@ -29,7 +29,6 @@ const main = async () => {
   console.log('partidos', partidos);
   console.log('partido', partido);
   console.log('membros partido', membrosPartido);
-
 };
 
 main();

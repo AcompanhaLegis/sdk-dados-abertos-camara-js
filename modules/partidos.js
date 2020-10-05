@@ -23,20 +23,20 @@ export const getPartidos = async (
 ) => {
   try {
     const availableOrderFields = [
-      'id', 
-      'sigla', 
-      'nome', 
-      'dataInicio', 
-      'dataFim'
+      'id',
+      'sigla',
+      'nome',
+      'dataInicio',
+      'dataFim',
     ];
-    
+
     const availableOptions = [
-      'sigla', 
-      'dataInicio', 
-      'dataFim', 
-      'idLegislatura'
+      'sigla',
+      'dataInicio',
+      'dataFim',
+      'idLegislatura',
     ];
-    
+
     const res = await get(
       'partidos',
       options,
@@ -56,11 +56,7 @@ export const getPartidos = async (
  * @param {String} format - Desired response format, default is json.
  * @param {Boolean} fullResponse - If true it will retrieve the whole response object, otherwise it will return only the data object inside the response.
  */
-export const getPartido = async (
-  id,
-  format = 'json',
-  fullResponse = false
-) => {
+export const getPartido = async (id, format = 'json', fullResponse = false) => {
   if (!id) {
     throw new Error('Required parameter ID is not present!');
   }
@@ -104,12 +100,12 @@ export const getMembrosbyPartido = async (
     ];
 
     const availableOptions = [
-      'sigla', 
-      'dataInicio', 
-      'dataFim', 
-      'idLegislatura'
+      'sigla',
+      'dataInicio',
+      'dataFim',
+      'idLegislatura',
     ];
-    
+
     const res = await get(
       `partidos/${id}/membros`,
       options,
@@ -119,12 +115,12 @@ export const getMembrosbyPartido = async (
 
     return fullResponse ? res : res.data;
   } catch (err) {
-      throw err;
+    throw err;
   }
 };
 
 export default {
   getPartidos,
   getPartido,
-  getMembrosbyPartido
+  getMembrosbyPartido,
 };

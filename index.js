@@ -6,7 +6,7 @@ export { blocos };
 const CamaraAPI = {
   ...blocos,
   ...deputados,
-  ...partidos
+  ...partidos,
 };
 
 export default CamaraAPI;
