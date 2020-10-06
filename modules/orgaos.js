@@ -65,11 +65,7 @@ export const getOrgaos = async (
  * @param {String} format - Desired response format, default is json.
  * @param {Boolean} fullResponse - If true it will retrieve the whole response object, otherwise it will return only the data object inside the response.
  */
-export const getOrgao = async (
-  id,
-  format = 'json',
-  fullResponse = false
-) => {
+export const getOrgao = async (id, format = 'json', fullResponse = false) => {
   if (!id) {
     throw new Error('Required parameter ID is not present!');
   }
@@ -87,7 +83,6 @@ export const getOrgao = async (
   }
 };
 
-
 /**
  * Wraps orgaos/{id}/eventos endpoint.
  *
@@ -96,7 +91,10 @@ export const getOrgao = async (
  * @param {Boolean} fullResponse - If true it will retrieve the whole response object, otherwise it will return only the data object inside the response.
  */
 export const getOrgaoEventos = async (
-    id, format = 'json', fullResponse = false) => {
+  id,
+  format = 'json',
+  fullResponse = false
+) => {
   if (!id) {
     throw new Error('Required parameter ID is not present!');
   }
@@ -113,8 +111,6 @@ export const getOrgaoEventos = async (
     throw err;
   }
 };
-
-
 
 /**
  * Wraps orgao/{id}/membros endpoint.
@@ -152,7 +148,11 @@ export const getOrgaoMembros = async (
  * @param {Object} options - Options to be sent in the request.
  * @param {Boolean} fullResponse - If true it will retrieve the whole response object, otherwise it will return only the data object inside the response.
  */
-export const getOrgaoVotacoes = async (id, format = 'json', fullResponse = false) => {
+export const getOrgaoVotacoes = async (
+  id,
+  format = 'json',
+  fullResponse = false
+) => {
   if (!id) {
     throw new Error('Required parameter ID is not present!');
   }

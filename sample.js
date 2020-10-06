@@ -21,10 +21,11 @@ const main = async () => {
   const orgaoVotacoes = await CamaraAPI.getOrgaoVotacoes(180);
   const votacoes = await CamaraAPI.getVotacoes();
   const votacaoId = await CamaraAPI.getVotacao('2256542-68');
-  const votacaoOrientacoes = await CamaraAPI.getVotacaoOrientacoes("2256542-68");
-  const votacaoVotos = await CamaraAPI.getVotacaoVotos("2256542-68");
+  const votacaoOrientacoes = await CamaraAPI.getVotacaoOrientacoes(
+    '2256542-68'
+  );
+  const votacaoVotos = await CamaraAPI.getVotacaoVotos('2256542-68');
 
-  
   console.log('blocos', blocos);
   console.log('bloco', bloco);
   console.log('deputados', deputados);
@@ -35,7 +36,7 @@ const main = async () => {
   console.log('frentes', frentes);
   console.log('frentesParlamentar', frentesParlamentar);
   console.log('frentesByParlamentar', frentesByParlamentar);
-  console.log('frenteMembros', frenteMembros); 
+  console.log('frenteMembros', frenteMembros);
   console.log('orgaos', orgaos);
   console.log('orgaoId', orgaoId);
   console.log('orgaoEventos ', orgaoEventos);
