@@ -10,6 +10,7 @@
   "scripts": {
     "demo": "parcel index.html",
     "build": "parcel build index.js",
+    "lint": "eslint 'modules/**.js' --fix",
     "format": "prettier --write \"./**/*.js\"",
     "format:ci": "prettier --check \"./**/*.js\"",
     "test": "jest --watch"
