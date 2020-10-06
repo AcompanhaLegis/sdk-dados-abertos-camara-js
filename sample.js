@@ -2,11 +2,7 @@ import CamaraAPI from './index';
 
 const main = async () => {
   const blocos = await CamaraAPI.getBlocos();
-
   const bloco = await CamaraAPI.getBloco(blocos.dados[0].id);
-  console.log('blocos', blocos);
-  console.log('bloco', bloco);
-
   const deputados = await CamaraAPI.getDeputados();
   const deputadoId = deputados.dados[0].id;
   const deputado = await CamaraAPI.getDeputado(deputadoId);
@@ -18,7 +14,14 @@ const main = async () => {
   const frentesParlamentar = await CamaraAPI.getFrentes();
   const frentesByParlamentar = await CamaraAPI.getFrentesByParlamentar(54255);
   const frenteMembros = await CamaraAPI.getFrenteMembros(54255);
+  const orgaos = await CamaraAPI.getOrgaos();
+  const orgaoId = await CamaraAPI.getOrgao(180);
+  const orgaoEventos = await CamaraAPI.getOrgaoEventos(180);
+  const orgaoMembros = await CamaraAPI.getOrgaoMembros(180);
+  const orgaoVotacoes = await CamaraAPI.getOrgaoVotacoes(180);
 
+  console.log('blocos', blocos);
+  console.log('bloco', bloco);
   console.log('deputados', deputados);
   console.log('deputado', deputado);
   console.log('despesas', despesas);
@@ -27,7 +30,12 @@ const main = async () => {
   console.log('frentes', frentes);
   console.log('frentesParlamentar', frentesParlamentar);
   console.log('frentesByParlamentar', frentesByParlamentar);
-  console.log('frenteMembros', frenteMembros);
+  console.log('frenteMembros', frenteMembros); 
+  console.log('orgaos', orgaos);
+  console.log('orgaoId', orgaoId);
+  console.log('orgaoEventos ', orgaoEventos);
+  console.log('orgaoMembros ', orgaoMembros);
+  console.log('orgaoVotacoes ', orgaoVotacoes);
 };
 
 main();
