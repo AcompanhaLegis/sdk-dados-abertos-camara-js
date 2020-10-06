@@ -11,13 +11,19 @@
     "demo": "parcel index.html",
     "build": "parcel build index.js",
     "format": "prettier --write \"./**/*.js\"",
-    "format:ci": "prettier --check \"./**/*.js\""
+    "format:ci": "prettier --check \"./**/*.js\"",
+    "test": "jest --watch"
   },
   "dependencies": {
     "axios": "^0.20.0",
     "qs": "^6.9.4"
   },
   "devDependencies": {
+    "@babel/core": "^7.11.6",
+    "@babel/preset-env": "^7.11.5",
+    "babel-jest": "^26.3.0",
+    "jest": "^26.4.2",
+    "parcel": "^1.12.4",
     "parcel-bundler": "^1.12.4",
     "prettier": "^2.1.1"
   },
