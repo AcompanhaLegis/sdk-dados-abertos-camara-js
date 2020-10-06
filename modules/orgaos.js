@@ -87,19 +87,27 @@ export const getOrgao = async (id, format = 'json', fullResponse = false) => {
  */
 export const getOrgaoEventos = async (
   id,
-  format = 'json',
+  options = {
+    ...defaultOptions,
+    ordenarPor: 'dataHoraInicio',
+  },
   fullResponse = false
 ) => {
-  if (!id) {
-    throw new Error('Required parameter ID is not present!');
-  }
-
-  if (!validateFormat(format)) {
-    throw new Error('Invalid format!');
-  }
-
+  const availableOrderFields = [
+    'id',
+    'dataHoraInicio',
+    'idTipoEvento',
+    'dataInicio',
+    'dataFim',
+  ];
+  const availableOptions = ['id', 'idTipoEvento', 'dataInicio', 'dataFim'];
   try {
-    const res = await get(`orgaos/${id}/eventos`, { format });
+    const res = await get(
+      `orgaos/${id}/eventos`,
+      options,
+      availableOrderFields,
+      availableOptions
+    );
 
     return fullResponse ? res : res.data;
   } catch (err) {
@@ -111,24 +119,30 @@ export const getOrgaoEventos = async (
  * Wraps orgao/{id}/membros endpoint.
  *
  * @param {Integer} id - ID of the orgao that will be requested.
- * @param {String} format - Desired response format, default is json.
+ * @param {String} options - Options to be sent in the request.
  * @param {Boolean} fullResponse - If true it will retrieve the whole response object, otherwise it will return only the data object inside the response.
  */
 export const getOrgaoMembros = async (
   id,
-  format = 'json',
+  options = {
+    format: 'json',
+  },
   fullResponse = false
 ) => {
+  const availableOrderFields = ['dataInicio', 'dataFim'];
+  const availableOptions = ['dataInicio', 'dataFim'];
+
   if (!id) {
     throw new Error('Required parameter ID is not present!');
   }
 
-  if (!validateFormat(format)) {
-    throw new Error('Invalid format!');
-  }
-
   try {
-    const res = await get(`orgaos/${id}/membros`, { format });
+    const res = await get(
+      `orgaos/${id}/membros`,
+      options,
+      availableOrderFields,
+      availableOptions
+    );
 
     return fullResponse ? res : res.data;
   } catch (err) {
@@ -161,7 +175,7 @@ export const getOrgaoVotacoes = async (
     'dataHoraRegistro',
     'idProposicaoObjeto',
   ];
-  const availableOptions = [availableOrderFields];
+  const availableOptions = ['dataInicio', 'dataFim'];
 
   if (!id) {
     throw new Error('Required parameter ID is not present!');
