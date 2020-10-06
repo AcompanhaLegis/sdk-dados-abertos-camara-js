@@ -24,13 +24,12 @@ export const getOrgaos = async (
   const availableOrderFields = [
     'id',
     'sigla',
+    'nome',
+    'apelido',
     'codTipoOrgao',
+    'tipoOrgao',
     'dataInicio',
     'dataFim',
-    'pagina',
-    'itens',
-    'ordem',
-    'ordenarPor',
   ];
   const availableOptions = [
     'id',
@@ -38,10 +37,6 @@ export const getOrgaos = async (
     'codTipoOrgao',
     'dataInicio',
     'dataFim',
-    'pagina',
-    'itens',
-    'ordem',
-    'ordenarPor',
   ];
 
   try {
@@ -150,19 +145,35 @@ export const getOrgaoMembros = async (
  */
 export const getOrgaoVotacoes = async (
   id,
-  format = 'json',
+  options = {
+    ...defaultOptions,
+    ordenarPor: 'id',
+  },
   fullResponse = false
 ) => {
+  const availableOrderFields = [
+    'id',
+    'idOrgao',
+    'siglaOrgao',
+    'idEvento',
+    'idProposicao',
+    'data',
+    'dataHoraRegistro',
+    'idProposicaoObjeto',
+  ];
+  const availableOptions = [availableOrderFields];
+
   if (!id) {
     throw new Error('Required parameter ID is not present!');
   }
 
-  if (!validateFormat(format)) {
-    throw new Error('Invalid format!');
-  }
-
   try {
-    const res = await get(`orgaos/${id}/votacoes`, { format });
+    const res = await get(
+      `orgaos/${id}/votacoes`,
+      options,
+      availableOrderFields,
+      availableOptions
+    );
 
     return fullResponse ? res : res.data;
   } catch (err) {
