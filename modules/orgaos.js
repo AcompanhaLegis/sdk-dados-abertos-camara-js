@@ -101,11 +101,11 @@ export const getOrgaoEventos = async (
     'dataFim',
   ];
   const availableOptions = ['id', 'idTipoEvento', 'dataInicio', 'dataFim'];
-  
+
   if (!id) {
     throw new Error('Required parameter ID is not present!');
   }
-  
+
   try {
     const res = await get(
       `orgaos/${id}/eventos`,
