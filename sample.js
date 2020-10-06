@@ -19,7 +19,12 @@ const main = async () => {
   const orgaoEventos = await CamaraAPI.getOrgaoEventos(180);
   const orgaoMembros = await CamaraAPI.getOrgaoMembros(180);
   const orgaoVotacoes = await CamaraAPI.getOrgaoVotacoes(180);
+  const votacoes = await CamaraAPI.getVotacoes();
+  const votacaoId = await CamaraAPI.getVotacao('2256542-68');
+  const votacaoOrientacoes = await CamaraAPI.getVotacaoOrientacoes("2256542-68");
+  const votacaoVotos = await CamaraAPI.getVotacaoVotos("2256542-68");
 
+  
   console.log('blocos', blocos);
   console.log('bloco', bloco);
   console.log('deputados', deputados);
@@ -36,6 +41,10 @@ const main = async () => {
   console.log('orgaoEventos ', orgaoEventos);
   console.log('orgaoMembros ', orgaoMembros);
   console.log('orgaoVotacoes ', orgaoVotacoes);
+  console.log('votacoes', votacoes);
+  console.log('votacaoId', votacaoId);
+  console.log('votacaoOrientacoes ', votacaoOrientacoes);
+  console.log('votacaoVotos ', votacaoVotos);
 };
 
 main();
