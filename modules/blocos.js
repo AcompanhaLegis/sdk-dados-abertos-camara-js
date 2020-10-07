@@ -1,5 +1,5 @@
 import { get } from './api';
-import { validateOptions, validateFormat } from './utils';
+import { validateFormat } from './utils';
 
 const availableOrderFields = ['idLegislatura', 'id', 'nome'];
 const availableOptions = ['id', 'idLegislatura'];
@@ -23,18 +23,14 @@ export const getBlocos = async (
 
   fullResponse = false
 ) => {
-  try {
-    const res = await get(
-      'blocos',
-      options,
-      availableOrderFields,
-      availableOptions
-    );
+  const res = await get(
+    'blocos',
+    options,
+    availableOrderFields,
+    availableOptions
+  );
 
-    return fullResponse ? res : res.data;
-  } catch (err) {
-    throw err;
-  }
+  return fullResponse ? res : res.data;
 };
 
 /**
@@ -53,13 +49,9 @@ export const getBloco = async (id, format = 'json', fullResponse = false) => {
     throw new Error('Invalid format!');
   }
 
-  try {
-    const res = await get(`blocos/${id}`, { format });
+  const res = await get(`blocos/${id}`, { format });
 
-    return fullResponse ? res : res.data;
-  } catch (err) {
-    throw err;
-  }
+  return fullResponse ? res : res.data;
 };
 
 export default {

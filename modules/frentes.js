@@ -19,18 +19,14 @@ export const getFrentes = async (
   format = 'json',
   fullResponse = false
 ) => {
-  try {
-    const res = await get(
-      'frentes',
-      { ...options, format },
-      availableOrderFields,
-      availableOptions
-    );
+  const res = await get(
+    'frentes',
+    { ...options, format },
+    availableOrderFields,
+    availableOptions
+  );
 
-    return fullResponse ? res : res.data;
-  } catch (err) {
-    throw err;
-  }
+  return fullResponse ? res : res.data;
 };
 
 /**
@@ -45,18 +41,14 @@ export const getFrentesByParlamentar = async (
   format = 'json',
   fullResponse = false
 ) => {
-  try {
-    const res = await get(
-      `frentes/${id}`,
-      { format },
-      availableOrderFields,
-      availableOptions
-    );
+  const res = await get(
+    `frentes/${id}`,
+    { format },
+    availableOrderFields,
+    availableOptions
+  );
 
-    return fullResponse ? res : res.data;
-  } catch (err) {
-    throw err;
-  }
+  return fullResponse ? res : res.data;
 };
 
 /**
@@ -71,18 +63,14 @@ export const getFrenteMembros = async (
   format = 'json',
   fullResponse = false
 ) => {
-  try {
-    const res = await get(
-      `frentes/${id}/membros`,
-      { format },
-      availableOrderFields,
-      availableOptions
-    );
+  const res = await get(
+    `frentes/${id}/membros`,
+    { format },
+    availableOrderFields,
+    availableOptions
+  );
 
-    return fullResponse ? res : res.data;
-  } catch (err) {
-    throw err;
-  }
+  return fullResponse ? res : res.data;
 };
 
 export default {

@@ -1,3 +1,4 @@
+/* eslint-disable no-bitwise */
 /**
  * Validates the passed format, small but useful.
  *

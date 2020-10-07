@@ -1,5 +1,5 @@
 import { get } from './api';
-import { validateOptions, validateFormat } from './utils';
+import { validateFormat } from './utils';
 
 const defaultOptions = {
   pagina: 1,
@@ -39,18 +39,14 @@ export const getOrgaos = async (
     'dataFim',
   ];
 
-  try {
-    const res = await get(
-      'orgaos',
-      options,
-      availableOrderFields,
-      availableOptions
-    );
+  const res = await get(
+    'orgaos',
+    options,
+    availableOrderFields,
+    availableOptions
+  );
 
-    return fullResponse ? res : res.data;
-  } catch (err) {
-    throw err;
-  }
+  return fullResponse ? res : res.data;
 };
 
 /**
@@ -69,13 +65,9 @@ export const getOrgao = async (id, format = 'json', fullResponse = false) => {
     throw new Error('Invalid format!');
   }
 
-  try {
-    const res = await get(`orgaos/${id}`, { format });
+  const res = await get(`orgaos/${id}`, { format });
 
-    return fullResponse ? res : res.data;
-  } catch (err) {
-    throw err;
-  }
+  return fullResponse ? res : res.data;
 };
 
 /**
@@ -106,18 +98,14 @@ export const getOrgaoEventos = async (
     throw new Error('Required parameter ID is not present!');
   }
 
-  try {
-    const res = await get(
-      `orgaos/${id}/eventos`,
-      options,
-      availableOrderFields,
-      availableOptions
-    );
+  const res = await get(
+    `orgaos/${id}/eventos`,
+    options,
+    availableOrderFields,
+    availableOptions
+  );
 
-    return fullResponse ? res : res.data;
-  } catch (err) {
-    throw err;
-  }
+  return fullResponse ? res : res.data;
 };
 
 /**
@@ -141,18 +129,14 @@ export const getOrgaoMembros = async (
     throw new Error('Required parameter ID is not present!');
   }
 
-  try {
-    const res = await get(
-      `orgaos/${id}/membros`,
-      options,
-      availableOrderFields,
-      availableOptions
-    );
+  const res = await get(
+    `orgaos/${id}/membros`,
+    options,
+    availableOrderFields,
+    availableOptions
+  );
 
-    return fullResponse ? res : res.data;
-  } catch (err) {
-    throw err;
-  }
+  return fullResponse ? res : res.data;
 };
 
 /**
@@ -186,18 +170,14 @@ export const getOrgaoVotacoes = async (
     throw new Error('Required parameter ID is not present!');
   }
 
-  try {
-    const res = await get(
-      `orgaos/${id}/votacoes`,
-      options,
-      availableOrderFields,
-      availableOptions
-    );
+  const res = await get(
+    `orgaos/${id}/votacoes`,
+    options,
+    availableOrderFields,
+    availableOptions
+  );
 
-    return fullResponse ? res : res.data;
-  } catch (err) {
-    throw err;
-  }
+  return fullResponse ? res : res.data;
 };
 
 export default {

@@ -11,9 +11,11 @@
     "demo": "parcel index.html",
     "build": "parcel build index.js",
     "lint": "eslint '**/**.js' --fix",
+    "lint:ci": "eslint '**/**.js'",
     "format": "prettier --write \"./**/*.js\"",
     "format:ci": "prettier --check \"./**/*.js\"",
-    "test": "jest --watch"
+    "test": "jest --watch",
+    "test:ci": "jest --ci"
   },
   "dependencies": {
     "axios": "^0.20.0",

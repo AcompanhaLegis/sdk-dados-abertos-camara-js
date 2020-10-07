@@ -1,5 +1,5 @@
 import { get } from './api';
-import { validateOptions, validateFormat } from './utils';
+import { validateFormat } from './utils';
 
 const defaultOptions = {
   pagina: 1,
@@ -38,18 +38,14 @@ export const getDeputados = async (
     'dataFim',
   ];
 
-  try {
-    const res = await get(
-      'deputados',
-      options,
-      availableOrderFields,
-      availableOptions
-    );
+  const res = await get(
+    'deputados',
+    options,
+    availableOrderFields,
+    availableOptions
+  );
 
-    return fullResponse ? res : res.data;
-  } catch (err) {
-    throw err;
-  }
+  return fullResponse ? res : res.data;
 };
 
 /**
@@ -72,13 +68,9 @@ export const getDeputado = async (
     throw new Error('Invalid format!');
   }
 
-  try {
-    const res = await get(`deputados/${id}`, { format });
+  const res = await get(`deputados/${id}`, { format });
 
-    return fullResponse ? res : res.data;
-  } catch (err) {
-    throw err;
-  }
+  return fullResponse ? res : res.data;
 };
 
 /**
@@ -105,18 +97,14 @@ export const getDeputadoDespesas = async (
 
   const availableOptions = [...availableOrderFields];
 
-  try {
-    const res = await get(
-      `deputados/${id}/despesas`,
-      options,
-      availableOrderFields,
-      availableOptions
-    );
+  const res = await get(
+    `deputados/${id}/despesas`,
+    options,
+    availableOrderFields,
+    availableOptions
+  );
 
-    return fullResponse ? res : res.data;
-  } catch (err) {
-    throw err;
-  }
+  return fullResponse ? res : res.data;
 };
 
 /**
@@ -139,18 +127,14 @@ export const getDeputadoDiscursos = async (
 ) => {
   const availableOrderFields = ['dataHoraInicio'];
   const availableOptions = [...availableOrderFields];
-  try {
-    const res = await get(
-      `deputados/${id}/discursos`,
-      options,
-      availableOrderFields,
-      availableOptions
-    );
+  const res = await get(
+    `deputados/${id}/discursos`,
+    options,
+    availableOrderFields,
+    availableOptions
+  );
 
-    return fullResponse ? res : res.data;
-  } catch (err) {
-    throw err;
-  }
+  return fullResponse ? res : res.data;
 };
 
 /**
@@ -170,17 +154,14 @@ export const getDeputadoEventos = async (
 ) => {
   const availableOrderFields = ['id', 'siglaOrgao', 'dataHoraInicio'];
   const availableOptions = ['dataInicio', 'dataFim'];
-  try {
-    const res = await get(
-      `deputados/${id}/eventos`,
-      options,
-      availableOrderFields
-    );
+  const res = await get(
+    `deputados/${id}/eventos`,
+    options,
+    availableOrderFields,
+    availableOptions
+  );
 
-    return fullResponse ? res : res.data;
-  } catch (err) {
-    throw err;
-  }
+  return fullResponse ? res : res.data;
 };
 
 /**
@@ -195,13 +176,9 @@ export const getDeputadoFrentes = async (
   format = 'json',
   fullResponse = false
 ) => {
-  try {
-    const res = await get(`deputados/${id}/frentes`, { format });
+  const res = await get(`deputados/${id}/frentes`, { format });
 
-    return fullResponse ? res : res.data;
-  } catch (err) {
-    throw err;
-  }
+  return fullResponse ? res : res.data;
 };
 
 /**
@@ -228,18 +205,14 @@ export const getDeputadoOrgaos = async (
     'dataFim',
   ];
   const availableOptions = ['dataInicio', 'dataFim'];
-  try {
-    const res = await get(
-      `deputados/${id}/orgaos`,
-      options,
-      availableOrderFields,
-      availableOptions
-    );
+  const res = await get(
+    `deputados/${id}/orgaos`,
+    options,
+    availableOrderFields,
+    availableOptions
+  );
 
-    return fullResponse ? res : res.data;
-  } catch (err) {
-    throw err;
-  }
+  return fullResponse ? res : res.data;
 };
 
 export default {
