@@ -2,19 +2,19 @@ import { validateFormat, validateOptions } from '../modules/utils';
 
 describe('validateFormat:', () => {
   test('providing no argument should return true', () => {
-    let res = validateFormat();
+    const res = validateFormat();
     expect(res).toBeTruthy();
   });
   test('"json" should return true', () => {
-    let res = validateFormat('json');
+    const res = validateFormat('json');
     expect(res).toBeTruthy();
   });
   test('"xml" should return true', () => {
-    let res = validateFormat('xml');
+    const res = validateFormat('xml');
     expect(res).toBeTruthy();
   });
   test('passing any other value should return false', () => {
-    let res = validateFormat('abcde');
+    const res = validateFormat('abcde');
     expect(res).toBeFalsy();
   });
 });
