@@ -16,13 +16,7 @@ const main = async () => {
   const frenteMembros = await CamaraAPI.getFrenteMembros(54255);
   const orgaos = await CamaraAPI.getOrgaos();
   const orgaoId = await CamaraAPI.getOrgao(180);
-  const orgaoEventos = await CamaraAPI.getOrgaoEventos(180, {
-    dataInicio: '2020-10-01',
-    dataFim: '2020-10-06',
-    pagina: 1,
-    ordem: 'ASC',
-    format: 'json',
-  });
+  const orgaoEventos = await CamaraAPI.getOrgaoEventos(180);
   const orgaoMembros = await CamaraAPI.getOrgaoMembros(180);
   const orgaoVotacoes = await CamaraAPI.getOrgaoVotacoes(180);
   const votacoes = await CamaraAPI.getVotacoes();
@@ -31,6 +25,22 @@ const main = async () => {
     '2256542-68'
   );
   const votacaoVotos = await CamaraAPI.getVotacaoVotos('2256542-68');
+  const refDeputados = await CamaraAPI.getRefDeputados();
+  const refSituacaoDeputado = await CamaraAPI.getRefSituacaoDeputado();
+  const refUfDeputados = await CamaraAPI.getRefUfDeputados();
+  const refEventos = await CamaraAPI.getRefEventos();
+  const refSituacaoEvento = await CamaraAPI.getRefSituacaoEvento();
+  const refTipoEvento = await CamaraAPI.getRefTipoEvento();
+  const refOrgaos = await CamaraAPI.getRefOrgaos();
+  const refSituacaoOrgao = await CamaraAPI.getRefSituacaoOrgao();
+  const refTipoOrgao = await CamaraAPI.getRefTipoOrgao();
+  const refProposicoes = await CamaraAPI.getRefProposicoes();
+  const refSituacaoProposicao = await CamaraAPI.getRefSituacaoProposicao();
+  const refTemaProposicao = await CamaraAPI.getRefTemaProposicao();
+  const refTipoAutorProposicao = await CamaraAPI.getRefTipoAutorProposicao();
+  const refTipoTramitacao = await CamaraAPI.getRefTipoTramitacao();
+  const refTipoProposicao = await CamaraAPI.getRefTipoProposicao();
+  const refUfs = await CamaraAPI.getRefUfs();
 
   console.log('blocos', blocos);
   console.log('bloco', bloco);
@@ -39,7 +49,6 @@ const main = async () => {
   console.log('despesas', despesas);
   console.log('discursos', discursos);
   console.log('eventos deputado', eventosDeputado);
-  console.log('orgaos deputado', orgaosDeputado);
   console.log('frentes', frentes);
   console.log('frentesParlamentar', frentesParlamentar);
   console.log('frentesByParlamentar', frentesByParlamentar);
@@ -53,6 +62,22 @@ const main = async () => {
   console.log('votacaoId', votacaoId);
   console.log('votacaoOrientacoes ', votacaoOrientacoes);
   console.log('votacaoVotos ', votacaoVotos);
+  console.log('refDeputados ', refDeputados);
+  console.log('refSituacaoDeputado ', refSituacaoDeputado);
+  console.log('refUfDeputados ', refUfDeputados);
+  console.log('refEventos', refEventos);
+  console.log('refSituacaoEvento', refSituacaoEvento);
+  console.log('refTipoEvento', refTipoEvento);
+  console.log('refOrgaos', refOrgaos);
+  console.log('refSituacaoOrgao', refSituacaoOrgao);
+  console.log('refTipoOrgao', refTipoOrgao);
+  console.log('refProposicoes', refProposicoes);
+  console.log('refSituacaoProposicao', refSituacaoProposicao);
+  console.log('refTemaProposicao', refTemaProposicao);
+  console.log('refTipoAutorProposicao', refTipoAutorProposicao);
+  console.log('refTipoTramitacao', refTipoTramitacao);
+  console.log('refTipoProposicao', refTipoProposicao);
+  console.log('refUfs', refUfs);
 };
 
 main();

@@ -3,6 +3,7 @@ import deputados from './modules/deputados';
 import frentes from './modules/frentes';
 import orgaos from './modules/orgaos';
 import votacoes from './modules/votacoes';
+import referencias from './modules/referencias';
 
 export { blocos };
 
@@ -12,6 +13,7 @@ const CamaraAPI = {
   ...frentes,
   ...orgaos,
   ...votacoes,
+  ...referencias,
 };
 
 export default CamaraAPI;
