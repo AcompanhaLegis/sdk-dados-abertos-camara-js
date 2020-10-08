@@ -31,6 +31,28 @@ const main = async () => {
     '2256542-68'
   );
   const votacaoVotos = await CamaraAPI.getVotacaoVotos('2256542-68');
+  const proposicoes = await CamaraAPI.getProposicoes();
+  const proposicao = await CamaraAPI.getProposicao(proposicoes.dados[0].id);
+  const proposicaoAutores = await CamaraAPI.getProposicaoAutores(
+    proposicoes.dados[0].id
+  );
+  const proposicaoRelacionadas = await CamaraAPI.getProposicaoRelacionadas(
+    proposicoes.dados[0].id
+  );
+  const proposicaoTemas = await CamaraAPI.getProposicaoTemas(
+    proposicoes.dados[0].id
+  );
+  const proposicaoTramitacoes = await CamaraAPI.getProposicaoTramitacoes(
+    proposicoes.dados[0].id
+  );
+  const proposicaoVotacoes = await CamaraAPI.getProposicaoVotacoes(
+    proposicoes.dados[0].id,
+    {
+      ordem: 'DESC',
+      ordenarPor: 'id',
+      format: 'json',
+    }
+  );
 
   console.log('blocos', blocos);
   console.log('bloco', bloco);
@@ -53,6 +75,13 @@ const main = async () => {
   console.log('votacaoId', votacaoId);
   console.log('votacaoOrientacoes ', votacaoOrientacoes);
   console.log('votacaoVotos ', votacaoVotos);
+  console.log('proposicoes', proposicoes);
+  console.log('proposicao', proposicao);
+  console.log('proposicaoAutores', proposicaoAutores);
+  console.log('proposicaoRelacionadas', proposicaoRelacionadas);
+  console.log('proposicaoTemas', proposicaoTemas);
+  console.log('proposicaoTramitacoes', proposicaoTramitacoes);
+  console.log('proposicaoVotacoes', proposicaoVotacoes);
 };
 
 main();
