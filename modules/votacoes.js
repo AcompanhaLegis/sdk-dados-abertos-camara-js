@@ -1,5 +1,5 @@
 import { get } from './api';
-import { validateOptions, validateFormat } from './utils';
+import { validateFormat } from './utils';
 
 const defaultOptions = {
   pagina: 1,
@@ -24,18 +24,14 @@ export const getVotacoes = async (
   const availableOrderFields = ['id', 'data'];
   const availableOptions = ['id', 'ordenarPor'];
 
-  try {
-    const res = await get(
-      'votacoes',
-      options,
-      availableOrderFields,
-      availableOptions
-    );
+  const res = await get(
+    'votacoes',
+    options,
+    availableOrderFields,
+    availableOptions
+  );
 
-    return fullResponse ? res : res.data;
-  } catch (err) {
-    throw err;
-  }
+  return fullResponse ? res : res.data;
 };
 
 /**
@@ -54,13 +50,9 @@ export const getVotacao = async (id, format = 'json', fullResponse = false) => {
     throw new Error('Invalid format!');
   }
 
-  try {
-    const res = await get(`votacoes/${id}`, { format });
+  const res = await get(`votacoes/${id}`, { format });
 
-    return fullResponse ? res : res.data;
-  } catch (err) {
-    throw err;
-  }
+  return fullResponse ? res : res.data;
 };
 
 /**
@@ -83,13 +75,9 @@ export const getVotacaoOrientacoes = async (
     throw new Error('Invalid format!');
   }
 
-  try {
-    const res = await get(`votacoes/${id}/orientacoes`, { format });
+  const res = await get(`votacoes/${id}/orientacoes`, { format });
 
-    return fullResponse ? res : res.data;
-  } catch (err) {
-    throw err;
-  }
+  return fullResponse ? res : res.data;
 };
 
 /**
@@ -112,13 +100,9 @@ export const getVotacaoVotos = async (
     throw new Error('Invalid format!');
   }
 
-  try {
-    const res = await get(`votacoes/${id}/votos`, { format });
+  const res = await get(`votacoes/${id}/votos`, { format });
 
-    return fullResponse ? res : res.data;
-  } catch (err) {
-    throw err;
-  }
+  return fullResponse ? res : res.data;
 };
 
 export default {
