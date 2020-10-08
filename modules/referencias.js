@@ -1,5 +1,4 @@
 import { get } from './api';
-import { validateOptions, validateFormat } from './utils';
 
 const defaultOptions = {
   format: 'json',
