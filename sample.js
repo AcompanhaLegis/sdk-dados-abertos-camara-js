@@ -31,6 +31,14 @@ const main = async () => {
     '2256542-68'
   );
   const votacaoVotos = await CamaraAPI.getVotacaoVotos('2256542-68');
+  const legislaturas = await CamaraAPI.getLegislaturas({
+    id: 15,
+    format: 'json',
+  });
+  const legislatura = await CamaraAPI.getLegislatura(legislaturas.dados[0].id);
+  const legislaturaMesa = await CamaraAPI.getLegislaturaMesa(
+    legislaturas.dados[0].id
+  );
 
   console.log('blocos', blocos);
   console.log('bloco', bloco);
@@ -53,6 +61,9 @@ const main = async () => {
   console.log('votacaoId', votacaoId);
   console.log('votacaoOrientacoes ', votacaoOrientacoes);
   console.log('votacaoVotos ', votacaoVotos);
+  console.log('legislaturas', legislaturas);
+  console.log('legislatura', legislatura);
+  console.log('legislaturaMesa', legislaturaMesa);
 };
 
 main();
