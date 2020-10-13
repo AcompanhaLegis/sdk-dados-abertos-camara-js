@@ -53,6 +53,15 @@ const main = async () => {
       format: 'json',
     }
   );
+  const legislaturas = await CamaraAPI.getLegislaturas({
+    id: 15,
+    format: 'json',
+  });
+  const legislatura = await CamaraAPI.getLegislatura(legislaturas.dados[0].id);
+  const legislaturaMesa = await CamaraAPI.getLegislaturaMesa(
+    legislaturas.dados[0].id
+  );
+
 
   console.log('blocos', blocos);
   console.log('bloco', bloco);
@@ -82,6 +91,9 @@ const main = async () => {
   console.log('proposicaoTemas', proposicaoTemas);
   console.log('proposicaoTramitacoes', proposicaoTramitacoes);
   console.log('proposicaoVotacoes', proposicaoVotacoes);
+  console.log('legislaturas', legislaturas);
+  console.log('legislatura', legislatura);
+  console.log('legislaturaMesa', legislaturaMesa);
 };
 
 main();
