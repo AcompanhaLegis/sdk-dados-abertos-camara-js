@@ -14,6 +14,14 @@ const main = async () => {
   const frentesParlamentar = await CamaraAPI.getFrentes();
   const frentesByParlamentar = await CamaraAPI.getFrentesByParlamentar(54255);
   const frenteMembros = await CamaraAPI.getFrenteMembros(54255);
+  const legislaturas = await CamaraAPI.getLegislaturas({
+    id: 15,
+    format: 'json',
+  });
+  const legislatura = await CamaraAPI.getLegislatura(legislaturas.dados[0].id);
+  const legislaturaMesa = await CamaraAPI.getLegislaturaMesa(
+    legislaturas.dados[0].id
+  );
   const orgaos = await CamaraAPI.getOrgaos();
   const orgaoId = await CamaraAPI.getOrgao(180);
   const orgaoEventos = await CamaraAPI.getOrgaoEventos(180, {
@@ -60,6 +68,9 @@ const main = async () => {
   console.log('frentesParlamentar', frentesParlamentar);
   console.log('frentesByParlamentar', frentesByParlamentar);
   console.log('frenteMembros', frenteMembros);
+  console.log('legislaturas', legislaturas);
+  console.log('legislatura', legislatura);
+  console.log('legislaturaMesa', legislaturaMesa);
   console.log('orgaos', orgaos);
   console.log('orgaoId', orgaoId);
   console.log('orgaoEventos ', orgaoEventos);
