@@ -19,7 +19,7 @@ export const get = async (
 
     const res = await api.get(`/${endpoint}?${qs.stringify(options)}`, {
       headers: {
-        Accept: `application/${format}`,
+        Accept: `application/${format || 'json'}`,
       },
     });
 

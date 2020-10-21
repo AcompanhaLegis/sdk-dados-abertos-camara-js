@@ -20,7 +20,6 @@ const defaultOptions = {
 
 export const getBlocos = async (
   options = defaultOptions,
-
   fullResponse = false
 ) => {
   const res = await get(
