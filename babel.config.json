@@ -1,0 +1,5 @@
+{
+  "ignore": ["node_modules/**"],
+  "presets": ["@babel/env"],
+  "plugins": ["@babel/plugin-transform-async-to-generator"]
+}
