@@ -1,6 +1,6 @@
 {
   "name": "@acompanha-legis/camara-sdk",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "SDK for requesting data from Camara dos Deputados (Brazil)",
   "main": "./dist/index.js",
   "repository": "git@github.com:AcompanhaLegis/sdk-dados-abertos-camara-js.git",
