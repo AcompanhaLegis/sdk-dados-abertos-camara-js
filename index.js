@@ -21,7 +21,7 @@ const CamaraAPI = {
   ...votacoes,
   ...proposicoes,
   ...referencias,
-  ...partidos
+  ...partidos,
 };
 
 export default CamaraAPI;

@@ -21,32 +21,17 @@ export const getPartidos = async (
   },
   fullResponse = false
 ) => {
-  try {
-    const availableOrderFields = [
-      'id',
-      'sigla',
-      'nome',
-      'dataInicio',
-      'dataFim',
-    ];
+  const availableOrderFields = ['id', 'sigla', 'nome', 'dataInicio', 'dataFim'];
 
-    const availableOptions = [
-      'sigla',
-      'dataInicio',
-      'dataFim',
-      'idLegislatura',
-    ];
+  const availableOptions = ['sigla', 'dataInicio', 'dataFim', 'idLegislatura'];
 
-    const res = await get(
-      'partidos',
-      options,
-      availableOrderFields,
-      availableOptions
-    );
-    return fullResponse ? res : res.data;
-  } catch (err) {
-    throw err;
-  }
+  const res = await get(
+    'partidos',
+    options,
+    availableOrderFields,
+    availableOptions
+  );
+  return fullResponse ? res : res.data;
 };
 
 /**
@@ -65,13 +50,9 @@ export const getPartido = async (id, format = 'json', fullResponse = false) => {
     throw new Error('Invalid format!');
   }
 
-  try {
-    const res = await get(`partidos/${id}`, { format });
+  const res = await get(`partidos/${id}`, { format });
 
-    return fullResponse ? res : res.data;
-  } catch (err) {
-    throw err;
-  }
+  return fullResponse ? res : res.data;
 };
 
 /**
@@ -89,34 +70,25 @@ export const getMembrosbyPartido = async (
   },
   fullResponse = false
 ) => {
-  try {
-    const availableOrderFields = [
-      'idLegislatura',
-      'id',
-      'nome',
-      'siglaUf',
-      'siglaPartido',
-      'email',
-    ];
+  const availableOrderFields = [
+    'idLegislatura',
+    'id',
+    'nome',
+    'siglaUf',
+    'siglaPartido',
+    'email',
+  ];
 
-    const availableOptions = [
-      'sigla',
-      'dataInicio',
-      'dataFim',
-      'idLegislatura',
-    ];
+  const availableOptions = ['sigla', 'dataInicio', 'dataFim', 'idLegislatura'];
 
-    const res = await get(
-      `partidos/${id}/membros`,
-      options,
-      availableOrderFields,
-      availableOptions
-    );
+  const res = await get(
+    `partidos/${id}/membros`,
+    options,
+    availableOrderFields,
+    availableOptions
+  );
 
-    return fullResponse ? res : res.data;
-  } catch (err) {
-    throw err;
-  }
+  return fullResponse ? res : res.data;
 };
 
 export default {
