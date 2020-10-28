@@ -13,7 +13,7 @@ Currently we support:
 - [ ] /eventos
 - [ ] /frentes
 - [ ] /legislaturas
-- [ ] /partidos
+- [x] /partidos
 - [ ] /proposicoes
 - [ ] /referencias
 - [ ] /votacoes
