@@ -1,13 +1,13 @@
-name: Release to NPM 
+name: Release to NPM
 
 on:
   release:
     types: [published]
 
-jobs: 
+jobs:
   release:
     runs-on: ubuntu-latest
-    steps: 
+    steps:
       - name: Checkout repo
         uses: actions/checkout@v2
 
@@ -16,7 +16,7 @@ jobs:
         with:
           node-version: 12.x
 
-      - name: Build, Commit & Release 
+      - name: Install deps and build
         run: yarn install && yarn build
 
       - name: Read package.json
@@ -28,10 +28,12 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          message: ":package: Release v${{ steps.package-version.outputs.version }}"
-          add: "dist/* --force"
+          message: ':package: Release v${{ steps.package-version.outputs.version }}'
+          add: 'dist/* --force'
+          branch: 'v${{ steps.package-version.outputs.version }}'
 
-      - uses: mikeal/merge-release@master
+      - name: NPM Release
+        uses: mikeal/merge-release@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
