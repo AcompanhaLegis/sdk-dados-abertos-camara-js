@@ -23,6 +23,9 @@ jobs:
         uses: tyankatsu0105/read-package-version-actions@v1
         id: package-version
 
+      - name: Set git config
+        run: git config pull.rebase true
+
       - name: Commit changes
         uses: EndBug/add-and-commit@v5
         env:
