@@ -23,17 +23,15 @@ jobs:
         uses: tyankatsu0105/read-package-version-actions@v1
         id: package-version
 
-      - name: Set git config
-        run: git config pull.rebase true
-
       - name: Commit changes
         uses: EndBug/add-and-commit@v5
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           message: ':package: Release v${{ steps.package-version.outputs.version }}'
-          add: 'dist/* --force'
+          add: 'dist/*'
           branch: 'v${{ steps.package-version.outputs.version }}'
+          pull_strategy: '--no-rebase'
 
       - name: NPM Release
         uses: mikeal/merge-release@master
