@@ -34,6 +34,7 @@ jobs:
           message: ':package: Release v${{ steps.package-version.outputs.version }}'
           add: 'dist/* --force'
           branch: 'v${{ steps.package-version.outputs.version }}'
+          pull_strategy: '--no-rebase'
 
       - name: NPM Release
         uses: mikeal/merge-release@master
