@@ -1,0 +1,40 @@
+name: Release to NPM
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+
+      - name: Install deps and build
+        run: yarn install && yarn build
+
+      - name: Read package.json
+        uses: tyankatsu0105/read-package-version-actions@v1
+        id: package-version
+
+      - name: Commit changes
+        uses: EndBug/add-and-commit@v5
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          message: ':package: Release v${{ steps.package-version.outputs.version }}'
+          add: 'dist/*'
+          branch: 'v${{ steps.package-version.outputs.version }}'
+          pull_strategy: '--no-rebase'
+
+      - name: NPM Release
+        uses: mikeal/merge-release@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}

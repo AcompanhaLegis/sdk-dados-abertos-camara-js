@@ -8,7 +8,17 @@ import proposicoes from './modules/proposicoes';
 import referencias from './modules/referencias';
 import eventos from './modules/eventos';
 
-export { blocos };
+export {
+  blocos,
+  deputados,
+  eventos,
+  frentes,
+  legislaturas,
+  orgaos,
+  votacoes,
+  proposicoes,
+  referencias,
+};
 
 const CamaraAPI = {
   ...blocos,
