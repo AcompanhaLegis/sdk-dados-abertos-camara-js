@@ -1,0 +1,11 @@
+{
+  "source": {
+    "include": ["modules", "index.js", "package.json"],
+    "includePattern": ".js$",
+    "exclude": ["docs", "node_modules", "tests"]
+  },
+  "opts": {
+    "template": "node_modules/minami",
+    "destination": "./docs"
+  }
+}
