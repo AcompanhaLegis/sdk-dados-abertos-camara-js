@@ -6,9 +6,9 @@
   "repository": "git@github.com:AcompanhaLegis/sdk-dados-abertos-camara-js.git",
   "author": "Kimura <j.eduardokimura@icloud.com>",
   "license": "MIT",
-  "type": "module",
+  
   "scripts": {
-    "build": "parcel build index.js",
+    "build": "webpack",
     "build:docs": "jsdoc --configure .jsdoc.json --verbose",
     "start:docs": "http-server ./docs",
     "lint": "eslint '**/**.js' --fix",
@@ -35,9 +35,10 @@
     "jest": "^26.4.2",
     "jsdoc": "^3.6.7",
     "minami": "^1.2.3",
-    "parcel": "^1.12.4",
-    "parcel-bundler": "^1.12.4",
-    "prettier": "^2.1.1"
+    "prettier": "^2.1.1",
+    "webpack": "^5.59.1",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.3.1"
   },
   "browserslist": [
     "last 3 Chrome versions"
