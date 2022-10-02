@@ -5,7 +5,7 @@
  * @param {String} format - String cointaing the format to be validated.
  *
  */
-export const validateFormat = (format) =>
+export const validateFormat = (format?: string) =>
   format ? ['json', 'xml'].includes(format) : true;
 
 /**
@@ -18,9 +18,9 @@ export const validateFormat = (format) =>
  *
  */
 export const validateOptions = (
-  availableOrderFields,
-  options,
-  moreAttributes = []
+  availableOrderFields: string[],
+  options?: Record<string, any>,
+  moreAttributes: string[] = []
 ) => {
   if (!options) {
     return true;
@@ -40,10 +40,10 @@ export const validateOptions = (
     defaultAttributes.includes(key)
   );
 
-  isValid &= validateFormat(options?.format);
+  isValid &&= validateFormat(options?.format);
 
   // Validates if the ordernarPor is a valid field
-  isValid &= options?.ordenarPor
+  isValid &&= options?.ordenarPor
     ? availableOrderFields.includes(options.ordenarPor)
     : true;
 

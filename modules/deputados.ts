@@ -56,14 +56,10 @@ export const getDeputados = async (
  * @param {Boolean} fullResponse - If true it will retrieve the whole response object, otherwise it will return only the data object inside the response.
  */
 export const getDeputado = async (
-  id,
+  id: string,
   format = 'json',
   fullResponse = false
 ) => {
-  if (!id) {
-    throw new Error('Required parameter ID is not present!');
-  }
-
   if (!validateFormat(format)) {
     throw new Error('Invalid format!');
   }
@@ -81,7 +77,7 @@ export const getDeputado = async (
  * @param {Boolean} fullResponse - If true it will retrieve the whole response object, otherwise it will return only the data object inside the response.
  */
 export const getDeputadoDespesas = async (
-  id,
+  id: string,
   options = {
     ...defaultOptions,
     ordenarPor: 'ano',
@@ -118,7 +114,7 @@ export const getDeputadoDespesas = async (
  * @param {Boolean} fullResponse - If true it will retrieve the whole response object, otherwise it will return only the data object inside the response.
  */
 export const getDeputadoDiscursos = async (
-  id,
+  id: string,
   options = {
     ...defaultOptions,
     ordenarPor: 'dataHoraInicio',
@@ -145,7 +141,7 @@ export const getDeputadoDiscursos = async (
  * @param {Boolean} fullResponse - If true it will retrieve the whole response object, otherwise it will return only the data object inside the response.
  */
 export const getDeputadoEventos = async (
-  id,
+  id: string,
   options = {
     ...defaultOptions,
     ordenarPor: 'dataHoraInicio',
@@ -172,7 +168,7 @@ export const getDeputadoEventos = async (
  * @param {Boolean} fullResponse - If true it will retrieve the whole response object, otherwise it will return only the data object inside the response.
  */
 export const getDeputadoFrentes = async (
-  id,
+  id: string,
   format = 'json',
   fullResponse = false
 ) => {
@@ -189,7 +185,7 @@ export const getDeputadoFrentes = async (
  * @param {Boolean} fullResponse - If true it will retrieve the whole response object, otherwise it will return only the data object inside the response.
  */
 export const getDeputadoOrgaos = async (
-  id,
+  id: string,
   options = {
     ...defaultOptions,
     ordenarPor: 'dataInicio',

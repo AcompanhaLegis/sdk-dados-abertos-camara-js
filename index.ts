@@ -9,8 +9,6 @@ import referencias from './modules/referencias';
 import eventos from './modules/eventos';
 import partidos from './modules/partidos';
 
-export { blocos };
-
 const CamaraAPI = {
   ...blocos,
   ...deputados,

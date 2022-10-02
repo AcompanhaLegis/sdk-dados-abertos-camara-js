@@ -58,11 +58,11 @@ export const getEventos = async (
  * @param {String} format - Desired response format, default is json.
  * @param {Boolean} fullResponse - If true it will retrieve the whole response object, otherwise it will return only the data object inside the response.
  */
-export const getEvento = async (id, format = 'json', fullResponse = false) => {
-  if (!id) {
-    throw new Error('Required parameter ID is not present!');
-  }
-
+export const getEvento = async (
+  id: string,
+  format = 'json',
+  fullResponse = false
+) => {
   if (!validateFormat(format)) {
     throw new Error('Invalid format!');
   }
@@ -80,14 +80,10 @@ export const getEvento = async (id, format = 'json', fullResponse = false) => {
  * @param {Boolean} fullResponse - If true it will retrieve the whole response object, otherwise it will return only the data object inside the response.
  */
 export const getEventoDeputados = async (
-  id,
+  id: string,
   format = 'json',
   fullResponse = false
 ) => {
-  if (!id) {
-    throw new Error('Required parameter ID is not present!');
-  }
-
   if (!validateFormat(format)) {
     throw new Error('Invalid format!');
   }
@@ -105,14 +101,10 @@ export const getEventoDeputados = async (
  * @param {Boolean} fullResponse - If true it will retrieve the whole response object, otherwise it will return only the data object inside the response.
  */
 export const getEventoOrgaos = async (
-  id,
+  id: string,
   format = 'json',
   fullResponse = false
 ) => {
-  if (!id) {
-    throw new Error('Required parameter ID is not present!');
-  }
-
   if (!validateFormat(format)) {
     throw new Error('Invalid format!');
   }
@@ -130,14 +122,10 @@ export const getEventoOrgaos = async (
  * @param {Boolean} fullResponse - If true it will retrieve the whole response object, otherwise it will return only the data object inside the response.
  */
 export const getEventoPauta = async (
-  id,
+  id: string,
   format = 'json',
   fullResponse = false
 ) => {
-  if (!id) {
-    throw new Error('Required parameter ID is not present!');
-  }
-
   if (!validateFormat(format)) {
     throw new Error('Invalid format!');
   }
@@ -155,14 +143,10 @@ export const getEventoPauta = async (
  * @param {Boolean} fullResponse - If true it will retrieve the whole response object, otherwise it will return only the data object inside the response.
  */
 export const getEventoVotacoes = async (
-  id,
+  id: string,
   format = 'json',
   fullResponse = false
 ) => {
-  if (!id) {
-    throw new Error('Required parameter ID is not present!');
-  }
-
   if (!validateFormat(format)) {
     throw new Error('Invalid format!');
   }

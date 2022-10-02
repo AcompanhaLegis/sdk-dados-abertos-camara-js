@@ -51,16 +51,12 @@ export const getProposicoes = async (
  */
 
 export const getProposicao = async (
-  id,
+  id: string,
   options = {
     format: 'json',
   },
   fullResponse = false
 ) => {
-  if (!id) {
-    throw new Error('Required parameter ID is not present!');
-  }
-
   const res = await get(`proposicoes/${id}`, options);
 
   return fullResponse ? res : res.data;
@@ -75,16 +71,12 @@ export const getProposicao = async (
  */
 
 export const getProposicaoAutores = async (
-  id,
+  id: string,
   options = {
     format: 'json',
   },
   fullResponse = false
 ) => {
-  if (!id) {
-    throw new Error('Required parameter ID is not present!');
-  }
-
   const res = await get(`proposicoes/${id}/autores`, options);
 
   return fullResponse ? res : res.data;
@@ -99,16 +91,12 @@ export const getProposicaoAutores = async (
  */
 
 export const getProposicaoRelacionadas = async (
-  id,
+  id: string,
   options = {
     format: 'json',
   },
   fullResponse = false
 ) => {
-  if (!id) {
-    throw new Error('Required parameter ID is not present!');
-  }
-
   const res = await get(`proposicoes/${id}/relacionadas`, options);
 
   return fullResponse ? res : res.data;
@@ -123,16 +111,12 @@ export const getProposicaoRelacionadas = async (
  */
 
 export const getProposicaoTemas = async (
-  id,
+  id: string,
   options = {
     format: 'json',
   },
   fullResponse = false
 ) => {
-  if (!id) {
-    throw new Error('Required parameter ID is not present!');
-  }
-
   const res = await get(`proposicoes/${id}/temas`, options);
 
   return fullResponse ? res : res.data;
@@ -147,17 +131,13 @@ export const getProposicaoTemas = async (
  */
 
 export const getProposicaoTramitacoes = async (
-  id,
+  id: string,
   options = {
     format: 'json',
   },
   fullResponse = false
 ) => {
-  if (!id) {
-    throw new Error('Required parameter ID is not present!');
-  }
-
-  const availableOrderFields = [];
+  const availableOrderFields: string[] = [];
   const availableOptions = ['dataInicio', 'dataFim'];
 
   const res = await get(
@@ -179,17 +159,13 @@ export const getProposicaoTramitacoes = async (
  */
 
 export const getProposicaoVotacoes = async (
-  id,
+  id: string,
   options = {
     format: 'json',
     ordenarPor: 'dataHoraRegistro',
   },
   fullResponse = false
 ) => {
-  if (!id) {
-    throw new Error('Required parameter ID is not present!');
-  }
-
   const availableOrderFields = ['id', 'dataHoraRegistro'];
   const availableOptions = ['ordem', 'ordenarPor'];
 

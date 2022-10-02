@@ -56,11 +56,11 @@ export const getOrgaos = async (
  * @param {String} format - Desired response format, default is json.
  * @param {Boolean} fullResponse - If true it will retrieve the whole response object, otherwise it will return only the data object inside the response.
  */
-export const getOrgao = async (id, format = 'json', fullResponse = false) => {
-  if (!id) {
-    throw new Error('Required parameter ID is not present!');
-  }
-
+export const getOrgao = async (
+  id: string,
+  format = 'json',
+  fullResponse = false
+) => {
   if (!validateFormat(format)) {
     throw new Error('Invalid format!');
   }
@@ -78,7 +78,7 @@ export const getOrgao = async (id, format = 'json', fullResponse = false) => {
  * @param {Boolean} fullResponse - If true it will retrieve the whole response object, otherwise it will return only the data object inside the response.
  */
 export const getOrgaoEventos = async (
-  id,
+  id: string,
   options = {
     ...defaultOptions,
     ordenarPor: 'dataHoraInicio',
@@ -93,10 +93,6 @@ export const getOrgaoEventos = async (
     'dataFim',
   ];
   const availableOptions = ['id', 'idTipoEvento', 'dataInicio', 'dataFim'];
-
-  if (!id) {
-    throw new Error('Required parameter ID is not present!');
-  }
 
   const res = await get(
     `orgaos/${id}/eventos`,
@@ -116,7 +112,7 @@ export const getOrgaoEventos = async (
  * @param {Boolean} fullResponse - If true it will retrieve the whole response object, otherwise it will return only the data object inside the response.
  */
 export const getOrgaoMembros = async (
-  id,
+  id: string,
   options = {
     format: 'json',
   },
@@ -124,10 +120,6 @@ export const getOrgaoMembros = async (
 ) => {
   const availableOrderFields = ['dataInicio', 'dataFim'];
   const availableOptions = ['dataInicio', 'dataFim'];
-
-  if (!id) {
-    throw new Error('Required parameter ID is not present!');
-  }
 
   const res = await get(
     `orgaos/${id}/membros`,
@@ -147,7 +139,7 @@ export const getOrgaoMembros = async (
  * @param {Boolean} fullResponse - If true it will retrieve the whole response object, otherwise it will return only the data object inside the response.
  */
 export const getOrgaoVotacoes = async (
-  id,
+  id: string,
   options = {
     ...defaultOptions,
     ordenarPor: 'id',
@@ -165,10 +157,6 @@ export const getOrgaoVotacoes = async (
     'idProposicaoObjeto',
   ];
   const availableOptions = ['dataInicio', 'dataFim'];
-
-  if (!id) {
-    throw new Error('Required parameter ID is not present!');
-  }
 
   const res = await get(
     `orgaos/${id}/votacoes`,

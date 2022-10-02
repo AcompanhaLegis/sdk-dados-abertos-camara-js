@@ -2,28 +2,31 @@
   "name": "sdk-dados-abertos-camara-js",
   "version": "1.0.0",
   "description": "SDK for requesting data from Camara dos Deputados (Brazil)",
-  "main": "index.js",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "repository": "git@github.com:AcompanhaLegis/sdk-dados-abertos-camara-js.git",
   "author": "Kimura <j.eduardokimura@icloud.com>",
   "license": "MIT",
   "scripts": {
-    "build": "webpack",
+    "clean": "shx rm -rf _bundles lib lib-esm",
+    "build": "npm run clean && tsc && tsc -m es6 --outDir lib-esm && webpack",
     "build:docs": "jsdoc --configure .jsdoc.json --verbose",
     "start:docs": "http-server ./docs",
-    "lint": "eslint '**/**.js' --fix",
-    "lint:ci": "eslint '**/**.js'",
-    "format": "prettier --write \"./**/*.js\"",
-    "format:ci": "prettier --check \"./**/*.js\"",
+    "lint": "eslint 'modules/**.ts' --fix",
+    "lint:ci": "eslint 'modules/**.ts'",
+    "format": "prettier --write \"./**/*.ts\"",
+    "format:ci": "prettier --check \"./**/*.ts\"",
     "test": "jest --watch",
-    "test:ci": "jest --ci"
+    "test:ci": "jest --ci",
+    "prepublishOnly": "npm test && npm run format"
   },
   "dependencies": {
-    "axios": "^0.21.1",
-    "qs": "^6.9.4"
+    "axios": "^0.21.1"
   },
   "devDependencies": {
     "@babel/core": "^7.11.6",
     "@babel/preset-env": "^7.11.5",
+    "@babel/preset-typescript": "^7.18.6",
     "babel-jest": "^26.3.0",
     "eslint": "^7.32.0",
     "eslint-config-airbnb-base": "^14.2.0",
@@ -35,6 +38,10 @@
     "jsdoc": "^3.6.7",
     "minami": "^1.2.3",
     "prettier": "^2.1.1",
+    "shx": "^0.3.4",
+    "ts-jest": "^29.0.3",
+    "ts-loader": "^9.4.1",
+    "typescript": "^4.8.4",
     "webpack": "^5.59.1",
     "webpack-cli": "^4.9.1",
     "webpack-dev-server": "^4.3.1"
