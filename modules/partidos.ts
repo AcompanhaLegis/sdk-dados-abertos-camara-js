@@ -41,11 +41,11 @@ export const getPartidos = async (
  * @param {String} format - Desired response format, default is json.
  * @param {Boolean} fullResponse - If true it will retrieve the whole response object, otherwise it will return only the data object inside the response.
  */
-export const getPartido = async (id, format = 'json', fullResponse = false) => {
-  if (!id) {
-    throw new Error('Required parameter ID is not present!');
-  }
-
+export const getPartido = async (
+  id: string,
+  format = 'json',
+  fullResponse = false
+) => {
   if (!validateFormat(format)) {
     throw new Error('Invalid format!');
   }
@@ -63,7 +63,7 @@ export const getPartido = async (id, format = 'json', fullResponse = false) => {
  * @param {Boolean} fullResponse - If true it will retrieve the whole response object, otherwise it will return only the data object inside the response.
  */
 export const getMembrosbyPartido = async (
-  id,
+  id: string,
   options = {
     ...defaultOptions,
     ordenarPor: 'nome',

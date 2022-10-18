@@ -3,3 +3,6 @@
 dist
 node_modules
 coverage
+lib
+lib-esm
+_bundles

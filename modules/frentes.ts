@@ -37,7 +37,7 @@ export const getFrentes = async (
  * @param {Boolean} fullResponse - If true it will retrieve the whole response object, otherwise it will return only the data object inside the response.
  */
 export const getFrentesByParlamentar = async (
-  id,
+  id: string,
   format = 'json',
   fullResponse = false
 ) => {
@@ -59,7 +59,7 @@ export const getFrentesByParlamentar = async (
  * @param {Boolean} fullResponse - If true it will retrieve the whole response object, otherwise it will return only the data object inside the response.
  */
 export const getFrenteMembros = async (
-  id,
+  id: string,
   format = 'json',
   fullResponse = false
 ) => {

@@ -41,11 +41,11 @@ export const getVotacoes = async (
  * @param {String} format - Desired response format, default is json.
  * @param {Boolean} fullResponse - If true it will retrieve the whole response object, otherwise it will return only the data object inside the response.
  */
-export const getVotacao = async (id, format = 'json', fullResponse = false) => {
-  if (!id) {
-    throw new Error('Required parameter ID is not present!');
-  }
-
+export const getVotacao = async (
+  id: string,
+  format = 'json',
+  fullResponse = false
+) => {
   if (!validateFormat(format)) {
     throw new Error('Invalid format!');
   }
@@ -63,14 +63,10 @@ export const getVotacao = async (id, format = 'json', fullResponse = false) => {
  * @param {Boolean} fullResponse - If true it will retrieve the whole response object, otherwise it will return only the data object inside the response.
  */
 export const getVotacaoOrientacoes = async (
-  id,
+  id: string,
   format = 'json',
   fullResponse = false
 ) => {
-  if (!id) {
-    throw new Error('Required parameter ID is not present!');
-  }
-
   if (!validateFormat(format)) {
     throw new Error('Invalid format!');
   }
@@ -88,14 +84,10 @@ export const getVotacaoOrientacoes = async (
  * @param {Boolean} fullResponse - If true it will retrieve the whole response object, otherwise it will return only the data object inside the response.
  */
 export const getVotacaoVotos = async (
-  id,
+  id: string,
   format = 'json',
   fullResponse = false
 ) => {
-  if (!id) {
-    throw new Error('Required parameter ID is not present!');
-  }
-
   if (!validateFormat(format)) {
     throw new Error('Invalid format!');
   }

@@ -40,16 +40,12 @@ export const getLegislaturas = async (
  * @param {Boolean} fullResponse - If true it will retrieve the whole response object, otherwise it will return only the data object inside the response.
  */
 export const getLegislatura = async (
-  id,
+  id: string,
   options = {
     format: 'json',
   },
   fullResponse = false
 ) => {
-  if (!id) {
-    throw new Error('Required parameter ID is not present!');
-  }
-
   const res = await get(`legislaturas/${id}`, options);
 
   return fullResponse ? res : res.data;
@@ -62,15 +58,12 @@ export const getLegislatura = async (
  * @param {Boolean} fullResponse - If true it will retrieve the whole response object, otherwise it will return only the data object inside the response.
  */
 export const getLegislaturaMesa = async (
-  id,
+  id: string,
   options = {
     format: 'json',
   },
   fullResponse = false
 ) => {
-  if (!id) {
-    throw new Error('Required parameter ID is not present!');
-  }
   const availableOptions = ['dataInicio', 'dataFim'];
 
   const res = await get(`legislaturas/${id}/mesa`, options, availableOptions);

@@ -1,5 +1,4 @@
 import axios from 'axios';
-import qs from 'qs';
 
 import { validateOptions } from './utils';
 
@@ -8,20 +7,23 @@ const api = axios.create({
 });
 
 export const get = async (
-  endpoint,
-  options,
-  availableOrderFields = [],
-  availableOptions = []
+  endpoint: string,
+  options: Record<string, any>,
+  availableOrderFields: string[] = [],
+  availableOptions: string[] = []
 ) => {
   if (validateOptions(availableOrderFields, options, availableOptions)) {
     const { format } = options;
     delete options.format; // eslint-disable-line no-param-reassign
 
-    const res = await api.get(`/${endpoint}?${qs.stringify(options)}`, {
-      headers: {
-        Accept: `application/${format}`,
-      },
-    });
+    const res = await api.get(
+      `/${endpoint}?${new URLSearchParams(options).toString()}`,
+      {
+        headers: {
+          Accept: `application/${format}`,
+        },
+      }
+    );
 
     return res;
   }
